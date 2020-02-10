@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PokemonListVC.swift
 //  Pokedex
 //
 //  Created by Felix Lin on 2/9/20.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PokemonListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemYellow
     }
 
-
 }
-
