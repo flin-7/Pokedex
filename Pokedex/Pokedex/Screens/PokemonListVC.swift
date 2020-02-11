@@ -9,21 +9,13 @@
 import UIKit
 
 class PokemonListVC: UIViewController {
+    var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         configureViewController()
-        
-        NetworkManager.shared.getPokemons(offset: 0) { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let pokemons):
-                print(pokemons.results.count)
-            case .failure(let error):
-                self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
-            }
-        }
+        getPokemons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,5 +26,25 @@ class PokemonListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func configureCollectionView() {
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .systemPink
+        collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.reuseID)
+    }
+    
+    func getPokemons() {
+        NetworkManager.shared.getPokemons(offset: 0) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let pokemons):
+                print(pokemons.results.count)
+            case .failure(let error):
+                self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
     }
 }
