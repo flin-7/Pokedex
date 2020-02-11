@@ -15,6 +15,7 @@ class PokemonListVC: UIViewController {
     }
     
     var pokemons = [Pokemon]()
+    var filteredPokemons = [Pokemon]()
     var offset = 0
     var hasMorePokemons = true
     
@@ -23,8 +24,9 @@ class PokemonListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
         configureViewController()
+        configureSearchController()
+        configureCollectionView()
         getPokemons(offset: offset)
         configureDataSource()
     }
@@ -47,6 +49,15 @@ class PokemonListVC: UIViewController {
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.reuseID)
     }
     
+    func configureSearchController() {
+        let searchController = UISearchController()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search for a pokemon"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+    }
+    
     func getPokemons(offset: Int) {
         showLoadingView()
         NetworkManager.shared.getPokemons(offset: offset) { [weak self] result in
@@ -56,7 +67,7 @@ class PokemonListVC: UIViewController {
             switch result {
             case .success(let pokemons):
                 self.pokemons.append(contentsOf: pokemons.results)
-                self.updateData()
+                self.updateData(on: self.pokemons)
             case .failure(let error):
                 if self.pokemons.isEmpty {
                     let message = error.rawValue
@@ -78,7 +89,7 @@ class PokemonListVC: UIViewController {
         })
     }
     
-    func updateData() {
+    func updateData(on pokemons: [Pokemon]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>()
         snapshot.appendSections([.main])
         snapshot.appendItems(pokemons)
@@ -100,5 +111,18 @@ extension PokemonListVC: UICollectionViewDelegate {
             offset += 25
             getPokemons(offset: offset)
         }
+    }
+}
+
+extension PokemonListVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        filteredPokemons = pokemons.filter { $0.name.lowercased().contains(filter.lowercased()) }
+        updateData(on: filteredPokemons)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        updateData(on: pokemons)
     }
 }
