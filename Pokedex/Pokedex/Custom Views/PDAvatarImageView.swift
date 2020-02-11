@@ -24,6 +24,7 @@ class PDAvatarImageView: UIImageView {
         layer.cornerRadius = 10
         clipsToBounds = true
         image = placeholderImage
+        tintColor = .systemGray
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

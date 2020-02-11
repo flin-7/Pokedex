@@ -24,7 +24,7 @@ class PokemonCell: UICollectionViewCell {
     }
     
     func set(pokemon: Pokemon) {
-        pokenameLabel.text = pokemon.name
+        pokenameLabel.text = pokemon.name.capitalized
     }
     
     private func configure() {

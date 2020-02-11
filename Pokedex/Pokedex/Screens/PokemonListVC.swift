@@ -9,13 +9,22 @@
 import UIKit
 
 class PokemonListVC: UIViewController {
+    
+    enum Section {
+        case main
+    }
+    
+    var pokemons = [Pokemon]()
+    
     var collectionView: UICollectionView!
+    var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
         configureViewController()
         getPokemons()
+        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +40,7 @@ class PokemonListVC: UIViewController {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout())
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .systemPink
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.reuseID)
     }
     
@@ -55,10 +64,28 @@ class PokemonListVC: UIViewController {
             
             switch result {
             case .success(let pokemons):
-                print(pokemons.results.count)
+                self.pokemons = pokemons.results
+                self.updateData()
             case .failure(let error):
                 self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
+        }
+    }
+    
+    func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Pokemon>(collectionView: collectionView, cellProvider: { collectionView, indexPath, pokemon -> UICollectionViewCell? in
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCell.reuseID, for: indexPath) as! PokemonCell
+            cell.set(pokemon: pokemon)
+            return cell
+        })
+    }
+    
+    func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(pokemons)
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
 }
