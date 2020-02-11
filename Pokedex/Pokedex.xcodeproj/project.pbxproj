@@ -10,6 +10,7 @@
 		C28859F223F2963E002F56F8 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F123F2963E002F56F8 /* PokemonCell.swift */; };
 		C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */; };
 		C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F523F29FD8002F56F8 /* UIHelper.swift */; };
+		C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859FA23F2AA08002F56F8 /* PDEmptyStateView.swift */; };
 		C28DD0FA23F2202300AA74D5 /* PDAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */; };
 		C28DD0FC23F2206800AA74D5 /* PDTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */; };
 		C28DD0FE23F2212200AA74D5 /* PDBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */; };
@@ -49,6 +50,7 @@
 		C28859F123F2963E002F56F8 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAvatarImageView.swift; sourceTree = "<group>"; };
 		C28859F523F29FD8002F56F8 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		C28859FA23F2AA08002F56F8 /* PDEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDEmptyStateView.swift; sourceTree = "<group>"; };
 		C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAlertVC.swift; sourceTree = "<group>"; };
 		C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTitleLabel.swift; sourceTree = "<group>"; };
 		C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDBodyLabel.swift; sourceTree = "<group>"; };
@@ -101,11 +103,12 @@
 		C229DF9323F22EF600A30B2C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				C28859F923F2A9F1002F56F8 /* Views */,
+				C28859F823F2A9D1002F56F8 /* ImageViews */,
 				C28859F023F29628002F56F8 /* Cells */,
 				C229DF9623F22F3100A30B2C /* Buttons */,
 				C229DF9523F22F1C00A30B2C /* ViewControllers */,
 				C229DF9423F22F0B00A30B2C /* Labels */,
-				C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -149,6 +152,22 @@
 				C28859F123F2963E002F56F8 /* PokemonCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C28859F823F2A9D1002F56F8 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		C28859F923F2A9F1002F56F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C28859FA23F2AA08002F56F8 /* PDEmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C2DF679D23F23229002DC686 /* Model */ = {
@@ -379,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */,
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
 				E55FC98B23F12E4200F38240 /* PokemonListVC.swift in Sources */,

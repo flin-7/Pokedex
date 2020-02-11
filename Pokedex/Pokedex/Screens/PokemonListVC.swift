@@ -58,6 +58,13 @@ class PokemonListVC: UIViewController {
                 self.pokemons.append(contentsOf: pokemons.results)
                 self.updateData()
             case .failure(let error):
+                if self.pokemons.isEmpty {
+                    let message = error.rawValue
+                    DispatchQueue.main.async {
+                        self.showEmptyStateView(with: message, in: self.view)
+                    }
+                }
+                
                 self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
         }
