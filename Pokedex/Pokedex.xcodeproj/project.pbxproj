@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C28DD0FA23F2202300AA74D5 /* PDAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */; };
+		C28DD0FC23F2206800AA74D5 /* PDTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */; };
+		C28DD0FE23F2212200AA74D5 /* PDBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */; };
+		C28DD10023F2218900AA74D5 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */; };
+		C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD10123F221F000AA74D5 /* PDButton.swift */; };
 		E55FC98B23F12E4200F38240 /* PokemonListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55FC98A23F12E4200F38240 /* PokemonListVC.swift */; };
 		E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55FC98C23F12E6900F38240 /* FavoritesListVC.swift */; };
 		E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D51CF23F1044A001C38A8 /* AppDelegate.swift */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAlertVC.swift; sourceTree = "<group>"; };
+		C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTitleLabel.swift; sourceTree = "<group>"; };
+		C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDBodyLabel.swift; sourceTree = "<group>"; };
+		C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		C28DD10123F221F000AA74D5 /* PDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDButton.swift; sourceTree = "<group>"; };
 		E55FC98A23F12E4200F38240 /* PokemonListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListVC.swift; sourceTree = "<group>"; };
 		E55FC98C23F12E6900F38240 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		E57D51CC23F1044A001C38A8 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +132,11 @@
 				E55FC98F23F12F1700F38240 /* Support */,
 				E55FC98E23F12F0600F38240 /* Screens */,
 				E57D51DD23F1044B001C38A8 /* Info.plist */,
+				C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */,
+				C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */,
+				C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */,
+				C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */,
+				C28DD10123F221F000AA74D5 /* PDButton.swift */,
 			);
 			path = Pokedex;
 			sourceTree = "<group>";
@@ -277,6 +292,11 @@
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
 				E55FC98B23F12E4200F38240 /* PokemonListVC.swift in Sources */,
+				C28DD0FE23F2212200AA74D5 /* PDBodyLabel.swift in Sources */,
+				C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */,
+				C28DD0FC23F2206800AA74D5 /* PDTitleLabel.swift in Sources */,
+				C28DD0FA23F2202300AA74D5 /* PDAlertVC.swift in Sources */,
+				C28DD10023F2218900AA74D5 /* UIViewController+Ext.swift in Sources */,
 				E57D51D223F1044A001C38A8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

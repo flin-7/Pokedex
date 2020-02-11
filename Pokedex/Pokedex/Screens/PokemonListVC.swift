@@ -12,7 +12,7 @@ class PokemonListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .systemBackground
     }
 
 }

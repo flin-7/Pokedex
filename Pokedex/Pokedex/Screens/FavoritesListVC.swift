@@ -1,5 +1,5 @@
 //
-//  FavoriteListVC.swift
+//  FavoritesListVC.swift
 //  Pokedex
 //
 //  Created by Felix Lin on 2/9/20.
