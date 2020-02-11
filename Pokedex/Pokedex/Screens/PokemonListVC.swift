@@ -15,6 +15,8 @@ class PokemonListVC: UIViewController {
     }
     
     var pokemons = [Pokemon]()
+    var offset = 0
+    var hasMorePokemons = true
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
@@ -23,7 +25,7 @@ class PokemonListVC: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         configureViewController()
-        getPokemons()
+        getPokemons(offset: offset)
         configureDataSource()
     }
     
@@ -39,18 +41,21 @@ class PokemonListVC: UIViewController {
     
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.createThreeColumnFlowLayout(in: view))
+        collectionView.delegate = self
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(PokemonCell.self, forCellWithReuseIdentifier: PokemonCell.reuseID)
     }
     
-    func getPokemons() {
-        NetworkManager.shared.getPokemons(offset: 0) { [weak self] result in
+    func getPokemons(offset: Int) {
+        showLoadingView()
+        NetworkManager.shared.getPokemons(offset: offset) { [weak self] result in
             guard let self = self else { return }
+            self.dismissLoadingView()
             
             switch result {
             case .success(let pokemons):
-                self.pokemons = pokemons.results
+                self.pokemons.append(contentsOf: pokemons.results)
                 self.updateData()
             case .failure(let error):
                 self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
@@ -72,6 +77,21 @@ class PokemonListVC: UIViewController {
         snapshot.appendItems(pokemons)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
+        }
+    }
+}
+
+extension PokemonListVC: UICollectionViewDelegate {
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard hasMorePokemons else { return }
+            offset += 25
+            getPokemons(offset: offset)
         }
     }
 }
