@@ -6,11 +6,12 @@
 //  Copyright © 2020 Felix Lin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let baseURL = "https://pokeapi.co/api/v2/pokemon"
+    private let baseURL = "https://pokeapi.co/api/v2/pokemon"
+    let cache = NSCache<NSString, UIImage>()
     
     private init() {}
     

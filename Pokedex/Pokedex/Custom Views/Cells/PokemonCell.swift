@@ -25,6 +25,9 @@ class PokemonCell: UICollectionViewCell {
     
     func set(pokemon: Pokemon) {
         pokenameLabel.text = pokemon.name.capitalized
+        let pokemonIndex = pokemon.url.split(separator: "/")[pokemon.url.split(separator: "/").count - 1]
+        let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonIndex).png"
+        avatarImageView.downloadImage(from: imageUrl)
     }
     
     private func configure() {
