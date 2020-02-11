@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C28859F223F2963E002F56F8 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F123F2963E002F56F8 /* PokemonCell.swift */; };
 		C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */; };
+		C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F523F29FD8002F56F8 /* UIHelper.swift */; };
 		C28DD0FA23F2202300AA74D5 /* PDAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */; };
 		C28DD0FC23F2206800AA74D5 /* PDTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */; };
 		C28DD0FE23F2212200AA74D5 /* PDBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		C28859F123F2963E002F56F8 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAvatarImageView.swift; sourceTree = "<group>"; };
+		C28859F523F29FD8002F56F8 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		C28DD0F923F2202300AA74D5 /* PDAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAlertVC.swift; sourceTree = "<group>"; };
 		C28DD0FB23F2206800AA74D5 /* PDTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTitleLabel.swift; sourceTree = "<group>"; };
 		C28DD0FD23F2212200AA74D5 /* PDBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDBodyLabel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				C2DF67A423F236C2002DC686 /* PDError.swift */,
+				C28859F523F29FD8002F56F8 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */,
 				C2DF67A223F23522002DC686 /* NetworkManager.swift in Sources */,
 				C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */,
+				C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */,
 				C2DF679F23F234BD002DC686 /* Pokemon.swift in Sources */,
 				C28DD0FC23F2206800AA74D5 /* PDTitleLabel.swift in Sources */,
 				C28DD0FA23F2202300AA74D5 /* PDAlertVC.swift in Sources */,
