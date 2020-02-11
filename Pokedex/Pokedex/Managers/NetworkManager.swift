@@ -16,7 +16,7 @@ class NetworkManager {
     private init() {}
     
     func getPokemons(offset: Int, completed: @escaping (Result<Pokemons, PDError>) -> Void) {
-        let endpoint = baseURL + "?limit=25&offset=\(offset)"
+        let endpoint = baseURL + "?limit=100&offset=\(offset)"
         
         guard let url = URL(string: endpoint) else {
             completed(.failure(.invalidEndpoint))

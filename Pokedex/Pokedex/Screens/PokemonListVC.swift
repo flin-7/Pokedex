@@ -18,6 +18,7 @@ class PokemonListVC: UIViewController {
     var filteredPokemons = [Pokemon]()
     var offset = 0
     var hasMorePokemons = true
+    var isSearching = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
@@ -39,6 +40,7 @@ class PokemonListVC: UIViewController {
     func configureViewController() {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
+        self.tabBarController?.delegate = self
     }
     
     func configureCollectionView() {
@@ -66,17 +68,20 @@ class PokemonListVC: UIViewController {
             
             switch result {
             case .success(let pokemons):
+                if pokemons.results.count < 100 {
+                    self.hasMorePokemons = false
+                }
                 self.pokemons.append(contentsOf: pokemons.results)
                 self.updateData(on: self.pokemons)
             case .failure(let error):
+                self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+                
                 if self.pokemons.isEmpty {
                     let message = error.rawValue
                     DispatchQueue.main.async {
                         self.showEmptyStateView(with: message, in: self.view)
                     }
                 }
-                
-                self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
@@ -108,9 +113,19 @@ extension PokemonListVC: UICollectionViewDelegate {
         
         if offsetY > contentHeight - height {
             guard hasMorePokemons else { return }
-            offset += 25
+            offset += 100
             getPokemons(offset: offset)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let activeArray = isSearching ? filteredPokemons : pokemons
+        let pokemon = activeArray[indexPath.item]
+        
+        let destVC = PokemonInfoVC()
+        destVC.pokemonName = pokemon.name
+        let navController = UINavigationController(rootViewController: destVC)
+        present(navController, animated: true)
     }
 }
 
@@ -118,11 +133,24 @@ extension PokemonListVC: UISearchResultsUpdating, UISearchBarDelegate {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        isSearching = true
         filteredPokemons = pokemons.filter { $0.name.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredPokemons)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
         updateData(on: pokemons)
+    }
+}
+
+extension PokemonListVC: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        
+        if tabBarIndex == 0 {
+            self.collectionView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
+        }
     }
 }
