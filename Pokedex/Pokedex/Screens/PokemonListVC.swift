@@ -12,7 +12,27 @@ class PokemonListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        configureViewController()
+        
+        NetworkManager.shared.getPokemons(offset: 0) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let pokemons):
+                print(pokemons.results.count)
+            case .failure(let error):
+                self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    func configureViewController() {
+        view.backgroundColor = .systemBackground
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
