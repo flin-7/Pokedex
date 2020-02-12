@@ -122,9 +122,7 @@ extension PokemonListVC: UICollectionViewDelegate {
         let activeArray = isSearching ? filteredPokemons : pokemons
         let pokemon = activeArray[indexPath.item]
         
-        let destVC = PokemonInfoVC()
-        destVC.pokemonName = pokemon.name
-        destVC.pokemonURL = pokemon.url
+        let destVC = PokemonInfoVC(pokemonName: pokemon.name, pokemonURL: pokemon.url)
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
     }

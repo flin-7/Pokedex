@@ -10,7 +10,7 @@ import UIKit
 
 class PDAvatarImageView: UIImageView {
     let cache = NetworkManager.shared.cache
-    let placeholderImage = UIImage(systemName: "questionmark")!
+    let placeholderImage = Image.placeholder
     
     override init(frame: CGRect) {
         super.init(frame: frame)

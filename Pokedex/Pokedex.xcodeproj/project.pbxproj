@@ -20,6 +20,8 @@
 		C28DD10023F2218900AA74D5 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */; };
 		C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD10123F221F000AA74D5 /* PDButton.swift */; };
 		C2C8DC3423F38B5B004930D8 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C8DC3323F38B5B004930D8 /* FavoriteCell.swift */; };
+		C2CAB3B623F3A71A00E141A2 /* PDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB3B523F3A71A00E141A2 /* PDTabBarController.swift */; };
+		C2CAB3B823F3A8B300E141A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB3B723F3A8B300E141A2 /* Constants.swift */; };
 		C2DF679F23F234BD002DC686 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF679E23F234BD002DC686 /* Pokemon.swift */; };
 		C2DF67A223F23522002DC686 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF67A123F23522002DC686 /* NetworkManager.swift */; };
 		C2DF67A523F236C2002DC686 /* PDError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF67A423F236C2002DC686 /* PDError.swift */; };
@@ -64,6 +66,8 @@
 		C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		C28DD10123F221F000AA74D5 /* PDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDButton.swift; sourceTree = "<group>"; };
 		C2C8DC3323F38B5B004930D8 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		C2CAB3B523F3A71A00E141A2 /* PDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTabBarController.swift; sourceTree = "<group>"; };
+		C2CAB3B723F3A8B300E141A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C2DF679E23F234BD002DC686 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		C2DF67A123F23522002DC686 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C2DF67A423F236C2002DC686 /* PDError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDError.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		C229DF9323F22EF600A30B2C /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2CAB3B423F3A70100E141A2 /* TabBarControllers */,
 				C28859F923F2A9F1002F56F8 /* Views */,
 				C28859F823F2A9D1002F56F8 /* ImageViews */,
 				C28859F023F29628002F56F8 /* Cells */,
@@ -179,6 +184,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C2CAB3B423F3A70100E141A2 /* TabBarControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2CAB3B523F3A71A00E141A2 /* PDTabBarController.swift */,
+			);
+			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
 		C2DF679D23F23229002DC686 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +215,7 @@
 			children = (
 				C2DF67A423F236C2002DC686 /* PDError.swift */,
 				C28859F523F29FD8002F56F8 /* UIHelper.swift */,
+				C2CAB3B723F3A8B300E141A2 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -411,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */,
+				C2CAB3B823F3A8B300E141A2 /* Constants.swift in Sources */,
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
 				C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
@@ -421,6 +436,7 @@
 				C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */,
 				C2C8DC3423F38B5B004930D8 /* FavoriteCell.swift in Sources */,
 				C2DF67A223F23522002DC686 /* NetworkManager.swift in Sources */,
+				C2CAB3B623F3A71A00E141A2 /* PDTabBarController.swift in Sources */,
 				C25564E723F3717C009D590A /* PersistenceManager.swift in Sources */,
 				C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */,
 				C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */,

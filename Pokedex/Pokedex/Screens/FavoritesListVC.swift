@@ -76,9 +76,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let favorite = favorites[indexPath.row]
-        let destVC = PokemonInfoVC()
-        destVC.pokemonName = favorite.name
-        destVC.pokemonURL = favorite.url
+        let destVC = PokemonInfoVC(pokemonName: favorite.name, pokemonURL: favorite.url)
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
     }

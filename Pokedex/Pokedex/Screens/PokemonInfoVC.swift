@@ -15,6 +15,16 @@ class PokemonInfoVC: UIViewController {
     var pokemonName: String!
     var pokemonURL: String!
     
+    init(pokemonName: String, pokemonURL: String) {
+        super.init(nibName: nil, bundle: nil)
+        self.pokemonName = pokemonName
+        self.pokemonURL = pokemonURL
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
