@@ -24,17 +24,21 @@ class PDEmptyStateView: UIView {
     convenience init(message: String) {
         self.init(frame: .zero)
         messageLabel.text = message
-        configure()
     }
     
     private func configure() {
-        addSubview(messageLabel)
-
+        addSubviews(messageLabel)
+        configureMessageLabel()
+    }
+    
+    private func configureMessageLabel() {
         messageLabel.numberOfLines = 3
         messageLabel.textColor = .secondaryLabel
-
+        
+        let labelCenterYConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -80 : -150
+        
         NSLayoutConstraint.activate([
-            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: labelCenterYConstant),
             messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             messageLabel.heightAnchor.constraint(equalToConstant: 200)

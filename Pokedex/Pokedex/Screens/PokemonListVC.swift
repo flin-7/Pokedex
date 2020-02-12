@@ -19,6 +19,7 @@ class PokemonListVC: PDDataLoadingVC {
     var offset = 0
     var hasMorePokemons = true
     var isSearching = false
+    var isLoadingMorePokemons = false
     
     var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
@@ -54,7 +55,6 @@ class PokemonListVC: PDDataLoadingVC {
     func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a pokemon"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -62,6 +62,8 @@ class PokemonListVC: PDDataLoadingVC {
     
     func getPokemons(offset: Int) {
         showLoadingView()
+        isLoadingMorePokemons = true
+        
         NetworkManager.shared.getPokemons(offset: offset) { [weak self] result in
             guard let self = self else { return }
             self.dismissLoadingView()
@@ -83,6 +85,7 @@ class PokemonListVC: PDDataLoadingVC {
                     }
                 }
             }
+            self.isLoadingMorePokemons = false
         }
     }
     
@@ -112,7 +115,7 @@ extension PokemonListVC: UICollectionViewDelegate {
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            guard hasMorePokemons else { return }
+            guard hasMorePokemons, !isLoadingMorePokemons else { return }
             offset += 100
             getPokemons(offset: offset)
         }
@@ -128,18 +131,18 @@ extension PokemonListVC: UICollectionViewDelegate {
     }
 }
 
-extension PokemonListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension PokemonListVC: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
-        guard let filter = searchController.searchBar.text, !filter.isEmpty else { return }
+        guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+            filteredPokemons.removeAll()
+            updateData(on: pokemons)
+            isSearching = true
+            return
+        }
         isSearching = true
         filteredPokemons = pokemons.filter { $0.name.lowercased().contains(filter.lowercased()) }
         updateData(on: filteredPokemons)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        isSearching = false
-        updateData(on: pokemons)
     }
 }
 
@@ -149,7 +152,7 @@ extension PokemonListVC: UITabBarControllerDelegate {
         let tabBarIndex = tabBarController.selectedIndex
         
         if tabBarIndex == 0 {
-            self.collectionView.setContentOffset(CGPoint(x: 0, y: -100), animated: true)
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }
     }
 }

@@ -21,6 +21,8 @@
 		C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28DD10123F221F000AA74D5 /* PDButton.swift */; };
 		C2BDD2A823F3E4CD00B3D1A2 /* PDAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDD2A723F3E4CD00B3D1A2 /* PDAlertContainerView.swift */; };
 		C2BDD2AB23F3E57E00B3D1A2 /* PDDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDD2AA23F3E57E00B3D1A2 /* PDDataLoadingVC.swift */; };
+		C2BDD2AD23F3E80B00B3D1A2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDD2AC23F3E80B00B3D1A2 /* File.swift */; };
+		C2BDD2AF23F3E83400B3D1A2 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BDD2AE23F3E83400B3D1A2 /* UITableView+Ext.swift */; };
 		C2C8DC3423F38B5B004930D8 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C8DC3323F38B5B004930D8 /* FavoriteCell.swift */; };
 		C2CAB3B623F3A71A00E141A2 /* PDTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB3B523F3A71A00E141A2 /* PDTabBarController.swift */; };
 		C2CAB3B823F3A8B300E141A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CAB3B723F3A8B300E141A2 /* Constants.swift */; };
@@ -69,6 +71,8 @@
 		C28DD10123F221F000AA74D5 /* PDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDButton.swift; sourceTree = "<group>"; };
 		C2BDD2A723F3E4CD00B3D1A2 /* PDAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAlertContainerView.swift; sourceTree = "<group>"; };
 		C2BDD2AA23F3E57E00B3D1A2 /* PDDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDDataLoadingVC.swift; sourceTree = "<group>"; };
+		C2BDD2AC23F3E80B00B3D1A2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		C2BDD2AE23F3E83400B3D1A2 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		C2C8DC3323F38B5B004930D8 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		C2CAB3B523F3A71A00E141A2 /* PDTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDTabBarController.swift; sourceTree = "<group>"; };
 		C2CAB3B723F3A8B300E141A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				C28DD0FF23F2218900AA74D5 /* UIViewController+Ext.swift */,
+				C2BDD2AC23F3E80B00B3D1A2 /* File.swift */,
+				C2BDD2AE23F3E83400B3D1A2 /* UITableView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -430,10 +436,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2BDD2AD23F3E80B00B3D1A2 /* File.swift in Sources */,
 				C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */,
 				C2CAB3B823F3A8B300E141A2 /* Constants.swift in Sources */,
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
 				C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */,
+				C2BDD2AF23F3E83400B3D1A2 /* UITableView+Ext.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
 				C2BDD2AB23F3E57E00B3D1A2 /* PDDataLoadingVC.swift in Sources */,
 				E55FC98B23F12E4200F38240 /* PokemonListVC.swift in Sources */,
