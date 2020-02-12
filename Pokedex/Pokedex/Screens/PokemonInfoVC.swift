@@ -7,11 +7,9 @@
 //
 
 import UIKit
-import WebKit
 
 class PokemonInfoVC: UIViewController {
     
-    var webView: WKWebView!
     var pokemonName: String!
     var pokemonURL: String!
     
@@ -24,17 +22,26 @@ class PokemonInfoVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
-        loadWebPage(pokemon: pokemonName)
+        
+        let pokemonIndex = pokemonURL.split(separator: "/")[pokemonURL.split(separator: "/").count - 1]
+        print(pokemonIndex)
+        NetworkManager.shared.getPokemonFlavorText(pokemonIndex: String(pokemonIndex)) { [weak self] result in
+            switch result {
+            case .success(let pokeSpeciesInfo):
+                for i in 0..<pokeSpeciesInfo.flavorTextEntries.count {
+                    if pokeSpeciesInfo.flavorTextEntries[i].language.name == "en" {
+                        print(pokeSpeciesInfo.flavorTextEntries[i].flavorText)
+                        break
+                    }
+                }
+            case .failure(let error):
+                break
+            }
+        }
     }
     
     func configureViewController() {
@@ -42,12 +49,6 @@ class PokemonInfoVC: UIViewController {
         navigationItem.leftBarButtonItem = doneButton
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         navigationItem.rightBarButtonItem = addButton
-    }
-    
-    func loadWebPage(pokemon name: String) {
-        let url = URL(string: "https://www.pokemon.com/us/pokedex/\(name)")!
-        webView.load(URLRequest(url: url))
-        webView.allowsBackForwardNavigationGestures = true
     }
     
     @objc func addButtonTapped() {
@@ -68,9 +69,3 @@ class PokemonInfoVC: UIViewController {
     }
 }
 
-extension PokemonInfoVC: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        title = webView.title
-    }
-}
