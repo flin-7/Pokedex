@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C24C89E623F342F90046D51C /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C89E523F342F90046D51C /* PokemonInfoVC.swift */; };
-		C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25564E423F36F86009D590A /* PokemonInfo.swift */; };
 		C25564E723F3717C009D590A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25564E623F3717C009D590A /* PersistenceManager.swift */; };
 		C28859F223F2963E002F56F8 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F123F2963E002F56F8 /* PokemonCell.swift */; };
 		C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */; };
@@ -58,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		C24C89E523F342F90046D51C /* PokemonInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
-		C25564E423F36F86009D590A /* PokemonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfo.swift; sourceTree = "<group>"; };
 		C25564E623F3717C009D590A /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		C28859F123F2963E002F56F8 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAvatarImageView.swift; sourceTree = "<group>"; };
@@ -208,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				C2DF679E23F234BD002DC686 /* Pokemon.swift */,
-				C25564E423F36F86009D590A /* PokemonInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */,
 				C2CAB3B823F3A8B300E141A2 /* Constants.swift in Sources */,
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
-				C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */,
 				C2BDD2AF23F3E83400B3D1A2 /* UITableView+Ext.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
 				C2BDD2AB23F3E57E00B3D1A2 /* PDDataLoadingVC.swift in Sources */,

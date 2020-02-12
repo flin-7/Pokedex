@@ -12,7 +12,7 @@ class FavoritesListVC: PDDataLoadingVC {
     
     let tableView = UITableView()
     var favorites = [Pokemon]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
@@ -29,13 +29,14 @@ class FavoritesListVC: PDDataLoadingVC {
         title = "Favorites"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
-
+    
     func configureTableView() {
         view.addSubview(tableView)
         tableView.frame = view.bounds
         tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.removeExcessCells()
         
         tableView.register(FavoriteCell.self, forCellReuseIdentifier: FavoriteCell.reuseID)
     }
@@ -44,21 +45,26 @@ class FavoritesListVC: PDDataLoadingVC {
         PersistenceManager.retrieveFavorites { result in
             switch result {
             case .success(let favorites):
-                if favorites.isEmpty {
-                    self.showEmptyStateView(with: "No Favorites?\nAdd one on the follower screen.", in: self.view)
-                    self.tableView.isHidden = true
-                } else {
-                    self.tableView.isHidden = false
-                    self.favorites = favorites
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.view.bringSubviewToFront(self.tableView)
-                    }
-                }
+                self.updateUI(with: favorites)
             case .failure(let error):
                 self.presentPDAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
+    }
+    
+    func updateUI(with favorites: [Pokemon]) {
+        if favorites.isEmpty {
+            self.showEmptyStateView(with: "No Favorites?\nAdd one on the pokemons screen.", in: self.view)
+            self.tableView.isHidden = true
+        } else {
+            self.tableView.isHidden = false
+            self.favorites = favorites
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.view.bringSubviewToFront(self.tableView)
+            }
+        }
+        
     }
 }
 
@@ -79,6 +85,7 @@ extension FavoritesListVC: UITableViewDelegate, UITableViewDataSource {
         let destVC = PokemonInfoVC(pokemonName: favorite.name, pokemonURL: favorite.url)
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

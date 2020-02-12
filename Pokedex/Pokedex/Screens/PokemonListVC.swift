@@ -70,11 +70,7 @@ class PokemonListVC: PDDataLoadingVC {
             
             switch result {
             case .success(let pokemons):
-                if pokemons.results.count < 100 {
-                    self.hasMorePokemons = false
-                }
-                self.pokemons.append(contentsOf: pokemons.results)
-                self.updateData(on: self.pokemons)
+                self.updateUI(with: pokemons)
             case .failure(let error):
                 self.presentPDAlertOnMainThread(title: "Bad Stuff Happened", message: error.rawValue, buttonTitle: "Ok")
                 
@@ -87,6 +83,14 @@ class PokemonListVC: PDDataLoadingVC {
             }
             self.isLoadingMorePokemons = false
         }
+    }
+    
+    func updateUI(with pokemons: Pokemons) {
+        if pokemons.results.count < 100 {
+            self.hasMorePokemons = false
+        }
+        self.pokemons.append(contentsOf: pokemons.results)
+        self.updateData(on: self.pokemons)
     }
     
     func configureDataSource() {
