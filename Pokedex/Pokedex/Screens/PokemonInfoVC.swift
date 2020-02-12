@@ -13,6 +13,7 @@ class PokemonInfoVC: UIViewController {
     
     var webView: WKWebView!
     var pokemonName: String!
+    var pokemonIndex: String!
     
     override func loadView() {
         webView = WKWebView()
@@ -22,15 +23,25 @@ class PokemonInfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureViewController()
+        loadWebPage(pokemon: pokemonName)
+    }
+    
+    func configureViewController() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(dismissVC))
         navigationItem.leftBarButtonItem = doneButton
-        loadWebPage(pokemon: pokemonName)
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
     }
     
     func loadWebPage(pokemon name: String) {
         let url = URL(string: "https://pokemon.fandom.com/wiki/\(name)")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
+    }
+    
+    @objc func addButtonTapped() {
+
     }
     
     @objc func dismissVC() {

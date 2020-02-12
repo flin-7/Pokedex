@@ -124,6 +124,8 @@ extension PokemonListVC: UICollectionViewDelegate {
         
         let destVC = PokemonInfoVC()
         destVC.pokemonName = pokemon.name
+        let pokemonIndex = pokemon.url.split(separator: "/")[pokemon.url.split(separator: "/").count - 1]
+        destVC.pokemonIndex = String(pokemonIndex)
         let navController = UINavigationController(rootViewController: destVC)
         present(navController, animated: true)
     }

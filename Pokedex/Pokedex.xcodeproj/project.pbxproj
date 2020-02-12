@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C24C89E623F342F90046D51C /* PokemonInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24C89E523F342F90046D51C /* PokemonInfoVC.swift */; };
+		C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25564E423F36F86009D590A /* PokemonInfo.swift */; };
+		C25564E723F3717C009D590A /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25564E623F3717C009D590A /* PersistenceManager.swift */; };
+		C2687CED23F361580011EA4D /* PDHudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2687CEC23F361580011EA4D /* PDHudView.swift */; };
 		C28859F223F2963E002F56F8 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F123F2963E002F56F8 /* PokemonCell.swift */; };
 		C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */; };
 		C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28859F523F29FD8002F56F8 /* UIHelper.swift */; };
@@ -49,6 +52,9 @@
 
 /* Begin PBXFileReference section */
 		C24C89E523F342F90046D51C /* PokemonInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfoVC.swift; sourceTree = "<group>"; };
+		C25564E423F36F86009D590A /* PokemonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonInfo.swift; sourceTree = "<group>"; };
+		C25564E623F3717C009D590A /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
+		C2687CEC23F361580011EA4D /* PDHudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDHudView.swift; sourceTree = "<group>"; };
 		C28859F123F2963E002F56F8 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		C28859F323F2969D002F56F8 /* PDAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDAvatarImageView.swift; sourceTree = "<group>"; };
 		C28859F523F29FD8002F56F8 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C28859FA23F2AA08002F56F8 /* PDEmptyStateView.swift */,
+				C2687CEC23F361580011EA4D /* PDHudView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				C2DF679E23F234BD002DC686 /* Pokemon.swift */,
+				C25564E423F36F86009D590A /* PokemonInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				C2DF67A123F23522002DC686 /* NetworkManager.swift */,
+				C25564E623F3717C009D590A /* PersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -201,8 +210,8 @@
 			isa = PBXGroup;
 			children = (
 				E55FC98A23F12E4200F38240 /* PokemonListVC.swift */,
-				C24C89E523F342F90046D51C /* PokemonInfoVC.swift */,
 				E55FC98C23F12E6900F38240 /* FavoritesListVC.swift */,
+				C24C89E523F342F90046D51C /* PokemonInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -403,13 +412,16 @@
 			files = (
 				C28859FB23F2AA08002F56F8 /* PDEmptyStateView.swift in Sources */,
 				E55FC98D23F12E6900F38240 /* FavoritesListVC.swift in Sources */,
+				C25564E523F36F86009D590A /* PokemonInfo.swift in Sources */,
 				E57D51D023F1044A001C38A8 /* AppDelegate.swift in Sources */,
 				E55FC98B23F12E4200F38240 /* PokemonListVC.swift in Sources */,
 				C28859F223F2963E002F56F8 /* PokemonCell.swift in Sources */,
 				C24C89E623F342F90046D51C /* PokemonInfoVC.swift in Sources */,
 				C28DD0FE23F2212200AA74D5 /* PDBodyLabel.swift in Sources */,
 				C28859F423F2969D002F56F8 /* PDAvatarImageView.swift in Sources */,
+				C2687CED23F361580011EA4D /* PDHudView.swift in Sources */,
 				C2DF67A223F23522002DC686 /* NetworkManager.swift in Sources */,
+				C25564E723F3717C009D590A /* PersistenceManager.swift in Sources */,
 				C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */,
 				C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */,
 				C2DF679F23F234BD002DC686 /* Pokemon.swift in Sources */,
