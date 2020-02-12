@@ -45,7 +45,7 @@ class PokemonInfoVC: UIViewController {
     }
     
     func loadWebPage(pokemon name: String) {
-        let url = URL(string: "https://pokemon.fandom.com/wiki/\(name)")!
+        let url = URL(string: "https://www.pokemon.com/us/pokedex/\(name)")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }

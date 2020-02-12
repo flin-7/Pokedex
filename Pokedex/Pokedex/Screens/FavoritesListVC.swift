@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesListVC: UIViewController {
+class FavoritesListVC: PDDataLoadingVC {
     
     let tableView = UITableView()
     var favorites = [Pokemon]()

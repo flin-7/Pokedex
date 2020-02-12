@@ -28,7 +28,13 @@ class FavoriteCell: UITableViewCell {
         pokenameLabel.text = pokemon.name.capitalized
         let pokemonIndex = pokemon.url.split(separator: "/")[pokemon.url.split(separator: "/").count - 1]
         let imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonIndex).png"
-        avatarImageView.downloadImage(from: imageUrl)
+        NetworkManager.shared.downloadImage(from: imageUrl) { [weak self] image in
+            guard let self = self else { return }
+
+            DispatchQueue.main.async {
+                self.avatarImageView.image = image
+            }
+        }
     }
     
     private func configure() {

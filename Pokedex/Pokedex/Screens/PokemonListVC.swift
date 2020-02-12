@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PokemonListVC: UIViewController {
+class PokemonListVC: PDDataLoadingVC {
     
     enum Section {
         case main
