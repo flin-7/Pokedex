@@ -13,7 +13,7 @@ class PokemonInfoVC: UIViewController {
     
     var webView: WKWebView!
     var pokemonName: String!
-    var pokemonIndex: String!
+    var pokemonURL: String!
     
     override func loadView() {
         webView = WKWebView()
@@ -41,7 +41,16 @@ class PokemonInfoVC: UIViewController {
     }
     
     @objc func addButtonTapped() {
-
+        let pokemon = Pokemon(name: pokemonName, url: pokemonURL)
+        
+        PersistenceManager.updateWith(favorite: pokemon, actionType: .add) { [weak self] error in
+            guard let self = self else { return }
+            guard let error = error else {
+                self.presentPDAlertOnMainThread(title: "Success!", message: "You have successfully favorited this pokemon🎉", buttonTitle: "Horray!")
+                return
+            }
+            self.presentPDAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+        }
     }
     
     @objc func dismissVC() {
