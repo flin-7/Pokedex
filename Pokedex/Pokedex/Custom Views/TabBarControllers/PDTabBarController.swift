@@ -18,7 +18,7 @@ class PDTabBarController: UITabBarController {
     
     func createPokemonListNC() -> UINavigationController {
         let pokemonListVC = PokemonListVC()
-        pokemonListVC.title = "Pokemons"
+        pokemonListVC.title = "Pokedex"
         pokemonListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         return UINavigationController(rootViewController: pokemonListVC)

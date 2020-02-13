@@ -13,12 +13,12 @@ struct PokemonDetail: Codable {
     let name: String
     let weight: Int
     let height: Int
-    let types: Types
-    let abilities: Abilities
+    let types: [Types]
+    let abilities: [Abilities]
 }
 
 struct Abilities: Codable {
-    var ability: [Ability]
+    var ability: Ability
 }
 
 struct Ability: Codable {
