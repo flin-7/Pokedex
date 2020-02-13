@@ -75,7 +75,7 @@ class PokemonInfoVC: PDDataLoadingVC {
                 for i in 0..<pokeSpeciesInfo.flavorTextEntries.count {
                     if pokeSpeciesInfo.flavorTextEntries[i].language.name == "en" {
                         DispatchQueue.main.async {
-                            self.configureUIElement(bio: pokeSpeciesInfo.flavorTextEntries[i].flavorText)
+                            self.configureFalvorTextUIElement(bio: pokeSpeciesInfo.flavorTextEntries[i].flavorText)
                         }
                         break
                     }
@@ -93,16 +93,15 @@ class PokemonInfoVC: PDDataLoadingVC {
             
             switch result {
             case .success(let pokemonDetail):
-                for type in pokemonDetail.types {
-                    print(type.type)
-                }
+                
+                break
             case .failure(let error):
-                print(error)
+                self.presentPDAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
             }
         }
     }
     
-    func configureUIElement(bio: String) {
+    func configureFalvorTextUIElement(bio: String) {
         let pokemonIndex = pokemonURL.getPokemonIndex()
         var imageUrl = ""
         if let pokemonIndex = Int(pokemonIndex) {
@@ -116,6 +115,10 @@ class PokemonInfoVC: PDDataLoadingVC {
         }
         
         self.add(childVC: PDInfoHeaderVC(imageUrl: imageUrl, name: pokemonName, bio: bio), to: self.headerView)
+    }
+    
+    func configurePokemonDetailUIElement(type: String) {
+        
     }
     
     @objc func addButtonTapped() {
@@ -147,9 +150,11 @@ class PokemonInfoVC: PDDataLoadingVC {
             ])
         }
         
+        itemViewOne.backgroundColor = .systemPink
+        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 210),
+            headerView.heightAnchor.constraint(equalToConstant: 280),
             
             itemViewOne.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: padding),
             itemViewOne.heightAnchor.constraint(equalToConstant: itemHeight),

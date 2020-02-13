@@ -10,6 +10,7 @@ import UIKit
 
 enum SFSymbols {
     static let questionmark = "questionmark"
+    static let info = "info.circle"
 }
 
 enum Image {
