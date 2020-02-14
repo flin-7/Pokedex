@@ -12,7 +12,7 @@ class PDTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UITabBar.appearance().tintColor = .systemRed
+        UITabBar.appearance().tintColor = .systemPurple
         viewControllers = [createPokemonListNC(), createFavoritesNC()]
     }
     

@@ -43,6 +43,7 @@ class PokemonInfoVC: PDDataLoadingVC {
         configureScrollView()
         layoutUI()
         getPokemonFlavorText()
+        getPokemonDetail()
     }
     
     func configureViewController() {
@@ -93,7 +94,9 @@ class PokemonInfoVC: PDDataLoadingVC {
             
             switch result {
             case .success(let pokemonDetail):
-                
+                DispatchQueue.main.async {
+                    self.configurePokemonDetailUIElement(pokemonDetail: pokemonDetail)
+                }
                 break
             case .failure(let error):
                 self.presentPDAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
@@ -103,22 +106,11 @@ class PokemonInfoVC: PDDataLoadingVC {
     
     func configureFalvorTextUIElement(bio: String) {
         let pokemonIndex = pokemonURL.getPokemonIndex()
-        var imageUrl = ""
-        if let pokemonIndex = Int(pokemonIndex) {
-            if pokemonIndex < 10 {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00\(pokemonIndex).png"
-            } else if pokemonIndex < 100 {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0\(pokemonIndex).png"
-            } else {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(pokemonIndex).png"
-            }
-        }
-        
-        self.add(childVC: PDInfoHeaderVC(imageUrl: imageUrl, name: pokemonName, bio: bio), to: self.headerView)
+        self.add(childVC: PDInfoHeaderVC(imageUrl: UIHelper.getPokemonImegrURL(for: pokemonIndex), name: pokemonName, bio: bio), to: self.headerView)
     }
     
-    func configurePokemonDetailUIElement(type: String) {
-        
+    func configurePokemonDetailUIElement(pokemonDetail: PokemonDetail) {
+        self.add(childVC: PDTypeItemVC(pokemonDetail: pokemonDetail), to: self.itemViewOne)
     }
     
     @objc func addButtonTapped() {
@@ -149,8 +141,6 @@ class PokemonInfoVC: PDDataLoadingVC {
                 itemView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)
             ])
         }
-        
-        itemViewOne.backgroundColor = .systemPink
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),

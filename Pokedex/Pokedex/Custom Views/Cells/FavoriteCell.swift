@@ -27,17 +27,7 @@ class FavoriteCell: UITableViewCell {
     func set(pokemon: Pokemon) {
         pokenameLabel.text = pokemon.name.capitalized
         let pokemonIndex = pokemon.url.getPokemonIndex()
-        var imageUrl = ""
-        if let pokemonIndex = Int(String(pokemonIndex)) {
-            if pokemonIndex < 10 {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00\(pokemonIndex).png"
-            } else if pokemonIndex < 100 {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0\(pokemonIndex).png"
-            } else {
-                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(pokemonIndex).png"
-            }
-        }
-        avatarImageView.downloadImage(fromUrl: imageUrl)
+        avatarImageView.downloadImage(fromUrl: UIHelper.getPokemonImegrURL(for: pokemonIndex))
     }
     
     private func configure() {

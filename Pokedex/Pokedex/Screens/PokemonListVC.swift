@@ -55,7 +55,7 @@ class PokemonListVC: PDDataLoadingVC {
     func configureSearchController() {
         let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Search for a pokemon"
+        searchController.searchBar.placeholder = "Search"
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
     }

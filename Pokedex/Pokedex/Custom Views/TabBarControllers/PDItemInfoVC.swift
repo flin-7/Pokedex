@@ -14,7 +14,18 @@ class PDItemInfoVC: UIViewController {
     let itemInfoViewOne = PDItemInfoView()
     let itemInfoViewTwo = PDItemInfoView()
     let actionButton = PDButton()
-
+    
+    var pokemonDetail: PokemonDetail!
+    
+    init(pokemonDetail: PokemonDetail) {
+        super.init(nibName: nil, bundle: nil)
+        self.pokemonDetail = pokemonDetail
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundView()

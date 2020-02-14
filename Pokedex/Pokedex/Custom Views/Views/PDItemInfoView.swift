@@ -15,8 +15,8 @@ enum ItemInfoType {
 class PDItemInfoView: UIView {
     
     let symbolImageView = UIImageView()
-    let titleLabel = PDTitleLabel(textAlignment: .left, fontSize: 14)
-    let descriptionLabel = PDTitleLabel(textAlignment: .center, fontSize: 14)
+    let titleLabel = PDTitleLabel(textAlignment: .left, fontSize: 16)
+    let descriptionLabel = PDTitleLabel(textAlignment: .center, fontSize: 16)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
