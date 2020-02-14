@@ -8,7 +8,22 @@
 
 import UIKit
 
+protocol PDTypeItemVCDelegate: class {
+    func didTapWikiProfile(for pokemonDetail: PokemonDetail)
+}
+
 class PDTypeItemVC: PDItemInfoVC {
+    
+    weak var delegate: PDTypeItemVCDelegate!
+    
+    init(pokemonDetail: PokemonDetail, delegate: PDTypeItemVCDelegate) {
+        super.init(pokemonDetail: pokemonDetail)
+        self.delegate = delegate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +37,9 @@ class PDTypeItemVC: PDItemInfoVC {
         }
         itemInfoViewOne.set(itemInfoType: .info, withDescription: type)
         actionButton.set(backgroundColor: .systemGreen, title: "Profile on Wiki")
+    }
+    
+    override func actionButtonTapped() {
+        delegate.didTapWikiProfile(for: pokemonDetail)
     }
 }

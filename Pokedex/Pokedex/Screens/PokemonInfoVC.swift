@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PokemonInfoVCDelegate: class {
-    
+    func didTapWikiProfile(for pokemonDetail: PokemonDetail)
 }
 
 class PokemonInfoVC: PDDataLoadingVC {
@@ -110,7 +110,7 @@ class PokemonInfoVC: PDDataLoadingVC {
     }
     
     func configurePokemonDetailUIElement(pokemonDetail: PokemonDetail) {
-        self.add(childVC: PDTypeItemVC(pokemonDetail: pokemonDetail), to: self.itemViewOne)
+        self.add(childVC: PDTypeItemVC(pokemonDetail: pokemonDetail, delegate: self), to: self.itemViewOne)
     }
     
     @objc func addButtonTapped() {
@@ -163,3 +163,14 @@ class PokemonInfoVC: PDDataLoadingVC {
     }
 }
 
+extension PokemonInfoVC: PDTypeItemVCDelegate {
+    
+    func didTapWikiProfile(for pokemonDetail: PokemonDetail) {
+        guard let url = URL(string: "https://en.wikipedia.org/wiki/\(pokemonDetail.name)") else {
+            presentPDAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+            return
+        }
+        
+        presentSafariVC(with: url)
+    }
+}
