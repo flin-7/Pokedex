@@ -42,6 +42,7 @@
 		E57D51DC23F1044B001C38A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E57D51DA23F1044B001C38A8 /* LaunchScreen.storyboard */; };
 		E57D51E723F1044B001C38A8 /* PokedexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D51E623F1044B001C38A8 /* PokedexTests.swift */; };
 		E57D51F223F1044B001C38A8 /* PokedexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57D51F123F1044B001C38A8 /* PokedexUITests.swift */; };
+		E5F693DB23F6905600C3530A /* PDItemInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F693DA23F6905600C3530A /* PDItemInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		E57D51ED23F1044B001C38A8 /* PokedexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokedexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57D51F123F1044B001C38A8 /* PokedexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexUITests.swift; sourceTree = "<group>"; };
 		E57D51F323F1044B001C38A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5F693DA23F6905600C3530A /* PDItemInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PDItemInfoVC.swift; path = "Pokedex/Custom Views/TabBarControllers/PDItemInfoVC.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 		C2FDCA7B23F4E3A800D65E52 /* ItemInfoVC */ = {
 			isa = PBXGroup;
 			children = (
+				E5F693DA23F6905600C3530A /* PDItemInfoVC.swift */,
 			);
 			path = ItemInfoVC;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				C2DF67A223F23522002DC686 /* NetworkManager.swift in Sources */,
 				C2CAB3B623F3A71A00E141A2 /* PDTabBarController.swift in Sources */,
 				C25564E723F3717C009D590A /* PersistenceManager.swift in Sources */,
+				E5F693DB23F6905600C3530A /* PDItemInfoVC.swift in Sources */,
 				C28DD10223F221F000AA74D5 /* PDButton.swift in Sources */,
 				C28859F623F29FD8002F56F8 /* UIHelper.swift in Sources */,
 				C2DF679F23F234BD002DC686 /* Pokemon.swift in Sources */,
