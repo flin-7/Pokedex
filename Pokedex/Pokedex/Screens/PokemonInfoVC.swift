@@ -166,7 +166,7 @@ class PokemonInfoVC: PDDataLoadingVC {
 extension PokemonInfoVC: PDTypeItemVCDelegate {
     
     func didTapWikiProfile(for pokemonDetail: PokemonDetail) {
-        guard let url = URL(string: "https://en.wikipedia.org/wiki/\(pokemonDetail.name)") else {
+        guard let url = URL(string: "https://www.pokemon.com/us/pokedex/\(pokemonDetail.name)") else {
             presentPDAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
             return
         }

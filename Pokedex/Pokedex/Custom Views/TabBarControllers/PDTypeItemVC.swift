@@ -36,7 +36,7 @@ class PDTypeItemVC: PDItemInfoVC {
             type += pokemonDetail.types[i].type.name.capitalized + " "
         }
         itemInfoViewOne.set(itemInfoType: .info, withDescription: type)
-        actionButton.set(backgroundColor: .systemGreen, title: "Profile on Wiki")
+        actionButton.set(backgroundColor: .systemGreen, title: "Profile on Pokedex")
     }
     
     override func actionButtonTapped() {

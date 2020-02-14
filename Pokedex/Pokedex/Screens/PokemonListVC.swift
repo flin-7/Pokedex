@@ -141,7 +141,7 @@ extension PokemonListVC: UISearchResultsUpdating {
         guard let filter = searchController.searchBar.text, !filter.isEmpty else {
             filteredPokemons.removeAll()
             updateData(on: pokemons)
-            isSearching = true
+            isSearching = false
             return
         }
         isSearching = true
