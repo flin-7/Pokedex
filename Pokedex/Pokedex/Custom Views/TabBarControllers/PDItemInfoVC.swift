@@ -31,7 +31,7 @@ class PDItemInfoVC: UIViewController {
         configureBackgroundView()
         layoutUI()
         configureStackView()
-        configureActionButton()
+//        configureActionButton()
     }
 
     func configureBackgroundView() {
@@ -57,7 +57,7 @@ class PDItemInfoVC: UIViewController {
     
     private func layoutUI() {
         view.addSubview(stackView)
-        view.addSubview(actionButton)
+//        view.addSubview(actionButton)
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
         actionButton.translatesAutoresizingMaskIntoConstraints = false
@@ -67,12 +67,12 @@ class PDItemInfoVC: UIViewController {
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            stackView.heightAnchor.constraint(equalToConstant: 50),
+            stackView.heightAnchor.constraint(equalToConstant: 94),
 
-            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
-            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            actionButton.heightAnchor.constraint(equalToConstant: 44)
+//            actionButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -padding),
+//            actionButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
+//            actionButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
+//            actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
 }

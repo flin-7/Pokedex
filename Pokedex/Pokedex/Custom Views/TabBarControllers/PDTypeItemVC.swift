@@ -32,11 +32,16 @@ class PDTypeItemVC: PDItemInfoVC {
     
     private func configureItems() {
         var type = ""
+        var abilityDesc = ""
         for i in 0..<pokemonDetail.types.count {
-            type += pokemonDetail.types[i].type.name.capitalized + " "
+            type += pokemonDetail.types[i].type.name.capitalized + "\n"
+        }
+        for i in 0..<pokemonDetail.abilities.count {
+            abilityDesc += pokemonDetail.abilities[i].ability.name.capitalized + "\n"
         }
         itemInfoViewOne.set(itemInfoType: .info, withDescription: type)
-        actionButton.set(backgroundColor: .systemGreen, title: "Profile on Pokedex")
+        itemInfoViewTwo.set(itemInfoType: .abilityInfo, withDescription: abilityDesc)
+//        actionButton.set(backgroundColor: .systemGreen, title: "Profile on Pokedex")
     }
     
     override func actionButtonTapped() {

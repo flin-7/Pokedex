@@ -128,7 +128,7 @@ class PokemonInfoVC: PDDataLoadingVC {
     
     func layoutUI() {
         let padding: CGFloat = 20
-        let itemHeight: CGFloat = 140
+        let itemHeight: CGFloat = 100
         
         itemViews = [headerView, itemViewOne]
         
@@ -166,11 +166,11 @@ class PokemonInfoVC: PDDataLoadingVC {
 extension PokemonInfoVC: PDTypeItemVCDelegate {
     
     func didTapWikiProfile(for pokemonDetail: PokemonDetail) {
-        guard let url = URL(string: "https://www.pokemon.com/us/pokedex/\(pokemonDetail.name)") else {
-            presentPDAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
-            return
-        }
-        
-        presentSafariVC(with: url)
+//        guard let url = URL(string: "https://www.pokemon.com/us/pokedex/\(pokemonDetail.name)") else {
+//            presentPDAlertOnMainThread(title: "Invalid URL", message: "The url attached to this user is invalid.", buttonTitle: "Ok")
+//            return
+//        }
+//        
+//        presentSafariVC(with: url)
     }
 }

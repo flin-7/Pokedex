@@ -9,14 +9,14 @@
 import UIKit
 
 enum ItemInfoType {
-    case info
+    case info, abilityInfo
 }
 
 class PDItemInfoView: UIView {
     
     let symbolImageView = UIImageView()
-    let titleLabel = PDTitleLabel(textAlignment: .left, fontSize: 16)
-    let descriptionLabel = PDTitleLabel(textAlignment: .center, fontSize: 16)
+    let titleLabel = PDTitleLabel(textAlignment: .left, fontSize: 14)
+    let descriptionLabel = PDTitleLabel(textAlignment: .center, fontSize: 14)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +34,9 @@ class PDItemInfoView: UIView {
         symbolImageView.contentMode = .scaleAspectFill
         symbolImageView.tintColor = .label
         
+        descriptionLabel.numberOfLines = 3
+        descriptionLabel.minimumScaleFactor = 0
+        
         NSLayoutConstraint.activate([
             symbolImageView.topAnchor.constraint(equalTo: self.topAnchor),
             symbolImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -48,7 +51,7 @@ class PDItemInfoView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: symbolImageView.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 18)
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
     
@@ -57,6 +60,9 @@ class PDItemInfoView: UIView {
         case .info:
             symbolImageView.image = UIImage(systemName: SFSymbols.info)
             titleLabel.text = "Type"
+        case .abilityInfo:
+            symbolImageView.image = UIImage(systemName: SFSymbols.action)
+            titleLabel.text = "Ability"
         }
         
         descriptionLabel.text = description
