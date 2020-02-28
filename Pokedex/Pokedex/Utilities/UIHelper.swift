@@ -27,7 +27,13 @@ enum UIHelper {
     static func getPokemonImegrURL(for pokemonIndex: String) -> String {
         var imageUrl = ""
         if let pokemonIndex = Int(pokemonIndex) {
-            imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(pokemonIndex).png"
+            if pokemonIndex < 10 {
+                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/00\(pokemonIndex).png"
+            } else if pokemonIndex < 100 {
+                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/0\(pokemonIndex).png"
+            } else {
+                imageUrl = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(pokemonIndex).png"
+            }
         }
         return imageUrl
     }
