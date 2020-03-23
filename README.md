@@ -20,6 +20,10 @@ Screenshots
 <img style="float: right;" src="https://i.imgur.com/4aEPgAE.png" width="400">
 <img style="float: right;" src="https://i.imgur.com/teNcy67.png" width="400">
 
+Author
+---------
+[Felix Lin](https://twitter.com/flin_adobe)
+
 Resources
 ---------
 * [Pokemon API](https://pokeapi.co)
